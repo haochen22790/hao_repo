@@ -28,34 +28,38 @@ void project_1_report()
   printf("\n");
 
   //initialize content of aptr_3 to end of array to 0
+  printf("\nuse memzero to clear aptr_3 and beyond\n");
   output = memzero(aptr_3, 16);
+  printf("output = %d\n", output);
   
   //print array
-  printf("\nuse memzero to clear aptr_3 and beyond\n");
   for (i=0; i<32; i++) printf("%d ", array[i]);
   printf("\n");
 
   //move 8 bytes from aptr_1 to aptr_3
+  printf("\nmove 8 bytes from aptr_1 to aptr_3\n");
   output = memmove1(aptr_1, aptr_3, 8);
+  printf("output = %d\n", output);
 
   //printf array
-  printf("\nmove 8 bytes from aptr_1 to aptr_3\n");
   for (i=0; i<32; i++) printf("%d ", array[i]);
   printf("\n");
 
   //move 16 bytes from aptr_2 to aptr_1
+  printf("\nmove 16 bytes from aptr_2 to aptr_1\n");
   output = memmove1(aptr_2, aptr_1, 16);
+  printf("output = %d\n", output);
   
   //print array
-  printf("\nmove 16 bytes from aptr_2 to aptr_1\n");
   for (i=0; i<32; i++) printf("%d ", array[i]);
   printf("\n");
 
   //reverse the entire 32 bytes
+  printf("\nreverse the entire 32 bytes\n");
   output = reverse(aptr_1, 32);
+  printf("output = %d\n", output);
 
   //print array
-  printf("\nreverse the entire 32 bytes\n");
   for (i=0; i<32; i++) printf("%d ", array[i]);
   printf("\n");
  

@@ -6,9 +6,12 @@
 int8_t memmove1(uint8_t* src, uint8_t* dst, uint32_t length)
 {
   uint32_t i;
-  
-  //printf("initial src is %p\n", src);
-  //printf("initial dst is %p\n", dst);
+
+  //return non-zero output if function fails
+  if (length < 0)
+  {
+    return 1;
+  }
 
   //if destination address is greater than source address,
   //then start with the first address
@@ -57,6 +60,12 @@ int8_t memmove1(uint8_t* src, uint8_t* dst, uint32_t length)
 int8_t memzero(uint8_t* src, uint32_t length)
 {
   uint32_t i;
+  
+  //return non-zero output if function fails
+  if (length < 0)
+  {
+    return 1;
+  }
 
   for (i=0; i<length; i++)
   {
@@ -72,6 +81,12 @@ int8_t reverse(uint8_t* src, uint32_t length)
 {
   uint8_t* end_ptr;
   uint8_t temp;
+  
+  //return non-zero output if function fails
+  if (length < 0)
+  {
+    return 1;
+  }
 
   end_ptr = src + length - 1;
 
