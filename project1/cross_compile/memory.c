@@ -37,9 +37,6 @@ int8_t memmove1(uint8_t* src, uint8_t* dst, uint32_t length)
 
     for (i=0; i<length; i++)
     { 
-      //printf("new src is %p\n", src);
-      //printf("new dst is %p\n", dst);
-
       //move element from source to destination
       *dst = *src;
 
@@ -67,6 +64,7 @@ int8_t memzero(uint8_t* src, uint32_t length)
     return 1;
   }
 
+  //set each element to 0
   for (i=0; i<length; i++)
   {
     *src = 0;
@@ -88,8 +86,10 @@ int8_t reverse(uint8_t* src, uint32_t length)
     return 1;
   }
 
+  //define a pointer to point to the last element
   end_ptr = src + length - 1;
-
+  
+  //swap elements at the two pointers
   while (end_ptr > src)
   {
     temp = *src;
