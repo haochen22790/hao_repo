@@ -22,6 +22,14 @@ int8_t bufEmpty(circBuf_t * c)
 //add an item to the circular buffer
 int8_t bufAddItem(circBuf_t * c, uint8_t item)
 {
+  //special case is when buffer is empty, do NOT increment head in this case
+  if (c->num_items == 0)
+  {
+    *(c->head) = item;
+    c->num_items++;
+    return 0;
+  }
+
   //increment head by one
   uint8_t * new_head = c->head + 1;
   
@@ -61,7 +69,11 @@ int8_t bufRemoveItem(circBuf_t * c, uint8_t * item)
     c->tail++;
     //reduce num_item by 1, to track the number of items in buffer
     c->num_items--;
-
+    //wrap around
+    if (c->tail == (c->buffer + c->buf_size))
+    {
+      c->tail = c->buffer;
+    }
     return 0;
   }
 }
